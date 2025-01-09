@@ -1,4 +1,4 @@
-
+using EcommerceAPI.Persistance;
 namespace EcommerceAPI.Api
 {
     public class Program
@@ -21,7 +21,7 @@ namespace EcommerceAPI.Api
                 .AddJsonFile("appsettings.json",optional:false)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json",optional:true);
 
-
+            builder.Services.AddPersistence(builder.Configuration);
 
 
             var app = builder.Build();
