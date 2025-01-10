@@ -1,5 +1,6 @@
 using EcommerceAPI.Persistance;
 using EcommerceAPI.Application;
+using EcommerceAPI.Mapper;
 namespace EcommerceAPI.Api
 {
     public class Program
@@ -24,6 +25,7 @@ namespace EcommerceAPI.Api
 
             builder.Services.AddPersistence(builder.Configuration);
             builder.Services.AddApplication();
+            builder.Services.AddCustomMapper();
 
 
             var app = builder.Build();
