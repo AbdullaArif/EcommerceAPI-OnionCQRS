@@ -14,18 +14,15 @@ namespace EcommerceAPI.Persistance
 {
     public static class Registration
     {
-        public static void AddPersistence(this IServiceCollection services,IConfiguration configuration)
+        public static void AddPersistence(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<AppDbContext>(opt =>
-
-     opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
+                 opt.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
             services.AddScoped(typeof(IReadRepository<>), typeof(ReadRepository<>));
-
-
+            services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
         }
-        
+
 
     }
 }
