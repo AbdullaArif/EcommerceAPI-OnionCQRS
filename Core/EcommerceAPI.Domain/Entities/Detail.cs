@@ -21,11 +21,11 @@ namespace EcommerceAPI.Domain.Entities
             CategoryId = categoryId;
         }
 
-        public required string Tittle { get; set; }
-        public required string Description { get; set; }
+        public  string Tittle { get; set; }
+        public  string Description { get; set; }
 
 
-        public required int CategoryId { get; set; }
+        public  int CategoryId { get; set; }
 
         public Category Category { get; set; }
     }
