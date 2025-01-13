@@ -37,7 +37,7 @@ namespace EcommerceAPI.Application.Features.Products.Command.UpdateProduct
                 await _unitOfWork.GetWriteRepository<ProductCategory>()
                     .AddAsync(new() { CategoryId = categoryId, ProductId= product.Id });
 
-            await _unitOfWork.GetWriteRepository<Product>().UpdateAsync(product);
+            await _unitOfWork.GetWriteRepository<Product>().UpdateAsync(map);
             await _unitOfWork.SaveAsync();
         }
     }
