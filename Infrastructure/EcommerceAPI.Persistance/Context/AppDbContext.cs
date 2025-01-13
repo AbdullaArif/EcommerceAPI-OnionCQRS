@@ -20,6 +20,8 @@ namespace EcommerceAPI.Persistance.Context
         DbSet<Category> Categories { get; set; }
         DbSet<Brand> Brands { get; set; }
         DbSet<Detail> Details { get; set; }
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

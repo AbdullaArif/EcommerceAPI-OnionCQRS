@@ -10,6 +10,23 @@ namespace EcommerceAPI.Domain.Entities
 {
     public class Product:EntityBase
     {
+        public Product()
+        {
+
+        }
+
+
+        public Product(string tittle, string description, decimal price, decimal discount, int brandId)
+        {
+            Tittle = tittle;
+            Description = description;
+            Price = price;
+            Discount = discount;
+            BrandId = brandId;
+
+        }
+
+
         public  string Tittle { get; set; }
         public  string Description { get; set; }
         public  decimal Price { get; set; }
@@ -19,7 +36,7 @@ namespace EcommerceAPI.Domain.Entities
         public  int BrandId { get; set; }
         public Brand Brand { get; set; }
 
-        public ICollection<Category> Categories { get; set; }
+        public ICollection<ProductCategory> ProductCategories { get; set; }
 
 
     }
