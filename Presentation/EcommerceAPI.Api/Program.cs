@@ -1,6 +1,7 @@
 using EcommerceAPI.Persistance;
 using EcommerceAPI.Application;
 using EcommerceAPI.Mapper;
+using EcommerceAPI.Application.Exceptions;
 namespace EcommerceAPI.Api
 {
     public class Program
@@ -36,7 +37,7 @@ namespace EcommerceAPI.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            app.ConfigureExceptionHandlingMiddleware();
             app.UseAuthorization();
 
 
