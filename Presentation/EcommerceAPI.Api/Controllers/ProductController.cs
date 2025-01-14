@@ -32,13 +32,13 @@ namespace EcommerceAPI.Api.Controllers
             await _mediator.Send(request);
             return Ok();
         }
-        [HttpPost]
+        [HttpPut]
         public async Task<IActionResult> UpdateProduct(UptadeProductCommandRequest request)
         {
             await _mediator.Send(request);
             return Ok();
         }
-        [HttpPost]
+        [HttpDelete]
         public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
         {
             await _mediator.Send(request);

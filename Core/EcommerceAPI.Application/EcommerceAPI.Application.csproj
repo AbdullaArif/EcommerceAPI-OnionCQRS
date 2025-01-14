@@ -17,4 +17,8 @@
     <ProjectReference Include="..\EcommerceAPI.Domain\EcommerceAPI.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Details\Command\" />
+  </ItemGroup>
+
 </Project>
