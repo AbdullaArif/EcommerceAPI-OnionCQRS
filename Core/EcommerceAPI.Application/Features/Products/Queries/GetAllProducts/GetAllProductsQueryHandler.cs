@@ -25,7 +25,7 @@ namespace EcommerceAPI.Application.Features.Products.Queries.GetAllProducts
 
         public async Task<IList<GetAllProductsQueryResponse>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
-            var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync(include: x=>x.Include(b=>b.Brand));
+            var products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync(  include: x=>x.Include(b=>b.Brand) );
         
             var brand = _mapper.Map<BrandDto,Brand>(new Brand());
             var map =_mapper.Map<GetAllProductsQueryResponse, Product>(products);
