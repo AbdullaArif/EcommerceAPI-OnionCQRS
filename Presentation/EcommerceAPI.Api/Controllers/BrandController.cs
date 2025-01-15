@@ -1,7 +1,7 @@
 ﻿using EcommerceAPI.Application.Features.Brands.Command.CreateBrand;
+using EcommerceAPI.Application.Features.Brands.Command.DeleteBrand;
 using EcommerceAPI.Application.Features.Brands.Command.UpdateBrand;
 using EcommerceAPI.Application.Features.Brands.Queries.GetAllBrands;
-using EcommerceAPI.Application.Features.Products.Command.DeleteProduct;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -41,7 +41,7 @@ namespace EcommerceAPI.Api.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteBrand(DeleteProductCommandRequest request)
+        public async Task<IActionResult> DeleteBrand(DeleteBrandCommandRequest request)
         {
             await _mediator.Send(request);
             return Ok();

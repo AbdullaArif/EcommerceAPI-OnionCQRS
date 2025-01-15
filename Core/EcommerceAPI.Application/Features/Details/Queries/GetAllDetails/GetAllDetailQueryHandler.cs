@@ -27,7 +27,7 @@ namespace EcommerceAPI.Application.Features.Details.Queries.GetAllDetails
         public async Task<IList<GetAllDetailQueryResponse>> Handle(GetAllDetailQueryRequest request, CancellationToken cancellationToken)
         {
 
-            var detail = await _unitOfWork.GetReadRepository<Detail>().GetAllAsync(include: x => x.Include(c => c.Category));
+            var detail = await _unitOfWork.GetReadRepository<Detail>().GetAllAsync(d=> !d.IsDeleted, include: x => x.Include(c => c.Category));
 
             var category = _mapper.Map<CategoryDto, Category>(new Category());
 
