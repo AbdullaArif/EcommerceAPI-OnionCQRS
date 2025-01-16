@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceAPI.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommandRequest:IRequest
+    public class CreateProductCommandRequest:IRequest<Unit>
     {
         public string Tittle { get; set; }
         public string Description { get; set; }
