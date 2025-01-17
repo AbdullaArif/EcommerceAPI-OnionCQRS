@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EcommerceAPI.Domain.Entites
+namespace EcommerceAPI.Domain.Entities
 {
     public   class Category:EntityBase 
     {

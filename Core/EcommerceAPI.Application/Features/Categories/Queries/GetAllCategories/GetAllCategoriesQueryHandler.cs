@@ -1,7 +1,6 @@
 ﻿using EcommerceAPI.Application.DTOs;
 using EcommerceAPI.Application.Interfaces.AutoMapper;
 using EcommerceAPI.Application.Interfaces.UnitOfWorks;
-using EcommerceAPI.Domain.Entites;
 using EcommerceAPI.Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
