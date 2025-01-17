@@ -1,5 +1,4 @@
 ﻿using EcommerceAPI.Domain.Common;
-using EcommerceAPI.Domain.Entites;
 using System;
 using System.Collections.Generic;
 using System.Linq;
