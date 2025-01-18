@@ -1,5 +1,6 @@
 using EcommerceAPI.Persistance;
 using EcommerceAPI.Application;
+using EcommerceAPI.Infrastructure;
 using EcommerceAPI.Mapper;
 using EcommerceAPI.Application.Exceptions;
 namespace EcommerceAPI.Api
@@ -26,6 +27,7 @@ namespace EcommerceAPI.Api
 
             builder.Services.AddPersistence(builder.Configuration);
             builder.Services.AddApplication();
+            builder.Services.AddInfrastructure();
             builder.Services.AddCustomMapper();
 
 
