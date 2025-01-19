@@ -27,7 +27,7 @@ namespace EcommerceAPI.Api
 
             builder.Services.AddPersistence(builder.Configuration);
             builder.Services.AddApplication();
-            builder.Services.AddInfrastructure();
+            builder.Services.AddInfrastructure();   
             builder.Services.AddCustomMapper();
 
 
