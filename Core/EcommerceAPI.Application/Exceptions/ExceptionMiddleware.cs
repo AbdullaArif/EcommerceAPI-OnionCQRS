@@ -36,9 +36,6 @@ namespace EcommerceAPI.Application.Exceptions
                     Errors = ((ValidationException)exception).Errors.Select(x=> x.ErrorMessage),
                     StatusCode = StatusCodes.Status400BadRequest
                 }.ToString());
-            
-
-
             List<string> errors = new()
             {
                 exception.Message,
@@ -51,9 +48,7 @@ namespace EcommerceAPI.Application.Exceptions
                 StatusCode = statusCode
             }.ToString());
 
-        }
-
-     
+        }  
         private static int GetStatusCode(Exception exception)=>    
              exception switch
             {
