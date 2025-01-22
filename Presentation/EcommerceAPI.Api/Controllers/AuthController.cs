@@ -31,5 +31,13 @@ namespace EcommerceAPI.Api.Controllers
             return StatusCode(StatusCodes.Status200OK,response);
 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> RefreshToken(LoginCommandRequest request)
+        {
+            var response = await _mediator.Send(request);
+            return StatusCode(StatusCodes.Status200OK, response);
+
+        }
     }
 }
