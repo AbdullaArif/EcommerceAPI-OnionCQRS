@@ -32,7 +32,6 @@ namespace EcommerceAPI.Api.Controllers
         {
             var response = await _mediator.Send(request);
             return StatusCode(StatusCodes.Status200OK,response);
-
         }
 
         [HttpPost]
@@ -40,7 +39,6 @@ namespace EcommerceAPI.Api.Controllers
         {
             var response = await _mediator.Send(request);
             return StatusCode(StatusCodes.Status200OK, response);
-
         }
 
         [HttpPost]
@@ -48,7 +46,6 @@ namespace EcommerceAPI.Api.Controllers
         {
             await _mediator.Send(request);
             return StatusCode(StatusCodes.Status200OK);
-
         }
 
         [HttpPost]
@@ -56,7 +53,6 @@ namespace EcommerceAPI.Api.Controllers
         {
             await _mediator.Send(new RevokeAllCommandRequest());
             return StatusCode(StatusCodes.Status200OK);
-
         }
     }
 }
