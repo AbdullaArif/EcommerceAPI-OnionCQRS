@@ -25,11 +25,11 @@ namespace EcommerceAPI.Application.Features.Categories.Queries.GetAllCategories
 
         public async Task<IList<GetAllCategoriesQueryResponse>> Handle(GetAllCategoriesQueryRequest request, CancellationToken cancellationToken)
         {
-            var categories = await _unitOfWork.GetReadRepository<Category>()
+            IList<Category> categories = await _unitOfWork.GetReadRepository<Category>()
                 .GetAllAsync(c => !c.IsDeleted, include: x => x.Include(d => d.Details));
 
-            var details = _mapper.Map<DetailDto, Detail>(new Detail());
-            var map = _mapper.Map<GetAllCategoriesQueryResponse ,Category>(categories);
+            DetailDto details = _mapper.Map<DetailDto, Detail>(new Detail());
+            IList<GetAllCategoriesQueryResponse> map = _mapper.Map<GetAllCategoriesQueryResponse ,Category>(categories);
 
             return map;
 

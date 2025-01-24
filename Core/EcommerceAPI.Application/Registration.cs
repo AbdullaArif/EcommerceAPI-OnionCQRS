@@ -19,7 +19,7 @@ namespace EcommerceAPI.Application
     {
         public static void AddApplication(this IServiceCollection services)
         {
-            var assembly = Assembly.GetExecutingAssembly();
+            Assembly assembly = Assembly.GetExecutingAssembly();
 
             services.AddTransient<ExceptionMiddleware>();
             //services.AddTransient<ProductRules>();
@@ -40,7 +40,7 @@ namespace EcommerceAPI.Application
             Assembly assembly,
             Type type)
         {
-            var types = assembly.GetTypes().Where(t => t.IsSubclassOf(type) && type != t).ToList();
+            List<Type> types = assembly.GetTypes().Where(t => t.IsSubclassOf(type) && type != t).ToList();
             foreach (var item in types) services.AddTransient(item);
 
             return services;

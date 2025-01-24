@@ -24,9 +24,9 @@ namespace EcommerceAPI.Application.Features.Brands.Queries.GetAllBrands
 
         public async Task<IList<GetAllBrandsQueryResponse>> Handle(GetAllBrandsQueryRequest request, CancellationToken cancellationToken)
         {
-            var brand = await _unitOfWork.GetReadRepository<Brand>().GetAllAsync(b=> !b.IsDeleted);
+            IList<Brand> brand = await _unitOfWork.GetReadRepository<Brand>().GetAllAsync(b=> !b.IsDeleted);
 
-            var map = _mapper.Map<GetAllBrandsQueryResponse, Brand>(brand);
+            IList<GetAllBrandsQueryResponse> map = _mapper.Map<GetAllBrandsQueryResponse, Brand>(brand);
 
             return map;
 

@@ -19,8 +19,8 @@ namespace EcommerceAPI.Application.Beheviors
         }
         public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
-            var context = new ValidationContext<TRequest>(request);
-            var failtures = _validator
+            ValidationContext<TRequest> context = new ValidationContext<TRequest>(request);
+            List<FluentValidation.Results.ValidationFailure> failtures = _validator
                 .Select(v => v.Validate(context))
                 .SelectMany(results => results.Errors)
                 .GroupBy(error => error.ErrorMessage)

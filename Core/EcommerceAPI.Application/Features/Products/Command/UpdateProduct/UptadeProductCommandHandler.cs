@@ -23,12 +23,12 @@ namespace EcommerceAPI.Application.Features.Products.Command.UpdateProduct
 
         public async Task Handle(UptadeProductCommandRequest request, CancellationToken cancellationToken)
         {
-            var product = await _unitOfWork.GetReadRepository<Product>()
+            Product product = await _unitOfWork.GetReadRepository<Product>()
                 .GetAsync(p=>p.Id ==  request.Id && !p.IsDeleted);
 
-            var map = _mapper.Map<Product, UptadeProductCommandRequest>(request);
+            Product map = _mapper.Map<Product, UptadeProductCommandRequest>(request);
 
-            var productCategories = await _unitOfWork.GetReadRepository<ProductCategory>()
+            IList<ProductCategory> productCategories = await _unitOfWork.GetReadRepository<ProductCategory>()
                 .GetAllAsync(pc=>pc.ProductId == product.Id);
 
             await _unitOfWork.GetWriteRepository<ProductCategory>().HardDeleteRangeAsync(productCategories);

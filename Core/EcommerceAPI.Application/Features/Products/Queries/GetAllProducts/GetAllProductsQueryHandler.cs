@@ -25,11 +25,11 @@ namespace EcommerceAPI.Application.Features.Products.Queries.GetAllProducts
 
         public async Task<IList<GetAllProductsQueryResponse>> Handle(GetAllProductsQueryRequest request, CancellationToken cancellationToken)
         {
-            var products = await _unitOfWork.GetReadRepository<Product>()
+            IList<Product> products = await _unitOfWork.GetReadRepository<Product>()
                 .GetAllAsync(p=> !p.IsDeleted,  include: x=>x.Include(b=>b.Brand) );
-        
-            var brand = _mapper.Map<BrandDto,Brand>(new Brand());
-            var map =_mapper.Map<GetAllProductsQueryResponse, Product>(products);
+
+            BrandDto brand = _mapper.Map<BrandDto,Brand>(new Brand());
+            IList<GetAllProductsQueryResponse> map =_mapper.Map<GetAllProductsQueryResponse, Product>(products);
             foreach (var item in map) item.Price -= (item.Price * item.Discount / 100);
                 return map;
             

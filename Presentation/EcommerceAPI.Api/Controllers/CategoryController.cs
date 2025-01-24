@@ -22,7 +22,7 @@ namespace EcommerceAPI.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllCategories()
         {
-            var response = await _mediator.Send(new GetAllCategoriesQueryRequest());
+            IList<GetAllCategoriesQueryResponse> response = await _mediator.Send(new GetAllCategoriesQueryRequest());
             return Ok(response);
         }
 

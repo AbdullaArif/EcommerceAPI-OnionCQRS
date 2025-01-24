@@ -27,11 +27,11 @@ namespace EcommerceAPI.Application.Features.Categories.Command.UpdateCategory
             Category category = await _unitOfWork.GetReadRepository<Category>()
                 .GetAsync(c => c.Id == request.Id && !c.IsDeleted, include: x => x.Include(d => d.Details));
 
-            var map = _mapper.Map<Category, UpdateCategoryCommandRequest>(request);
+            Category map = _mapper.Map<Category, UpdateCategoryCommandRequest>(request);
             foreach (var detailId in request.DetailIds)
             {
 
-                var detail = await _unitOfWork.GetReadRepository<Detail>()
+                Detail detail = await _unitOfWork.GetReadRepository<Detail>()
                     .GetAsync(x => x.Id == detailId && !x.IsDeleted);
 
                 if (detail != null)

@@ -28,7 +28,7 @@ namespace EcommerceAPI.Infrastructure.Tokens
 
         public async Task<JwtSecurityToken> CreateToken(User user, IList<string> roles)
         {
-            var claims = new List<Claim>()
+            List<Claim> claims = new List<Claim>()
             {
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
@@ -38,9 +38,9 @@ namespace EcommerceAPI.Infrastructure.Tokens
             foreach (var itemRole in roles)
                 claims.Add(new Claim(ClaimTypes.Role, itemRole));
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.Secret));
+            SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_tokenSettings.Secret));
 
-            var token = new JwtSecurityToken(
+            JwtSecurityToken token = new JwtSecurityToken(
                 issuer: _tokenSettings.Issuer,
                 audience: _tokenSettings.Audience,
                 expires: DateTime.Now.AddMinutes(_tokenSettings.TokenValidityInMinutes),

@@ -24,7 +24,7 @@ namespace EcommerceAPI.Api.Controllers
         [Authorize]
         public async Task<IActionResult> GetAllProduct()
         {
-            var response = await _mediator.Send(new GetAllProductsQueryRequest());
+            IList<GetAllProductsQueryResponse> response = await _mediator.Send(new GetAllProductsQueryRequest());
             return Ok(response);
         }
 
