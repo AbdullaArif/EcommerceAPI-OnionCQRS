@@ -31,6 +31,8 @@ namespace EcommerceAPI.Application
             ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("az");
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
 
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RedisCacheBehevior<,>));
+
         }
 
         private static IServiceCollection AddRulesFromAssambylContaining(
