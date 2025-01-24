@@ -24,7 +24,9 @@ namespace EcommerceAPI.Application.Features.Auth.Command.Login
         private readonly AuthRules authRules;
         private readonly UserManager<User> userManager;
 
-        public LoginCommandHandler(IConfiguration configuration,ITokenService tokenService,AuthRules authRules,UserManager<User> userManager,IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor contextAccessor): base(unitOfWork, mapper, contextAccessor) 
+        public LoginCommandHandler(IConfiguration configuration,ITokenService tokenService,AuthRules authRules
+            ,UserManager<User> userManager,IUnitOfWork unitOfWork, IMapper mapper, IHttpContextAccessor contextAccessor):
+            base(unitOfWork, mapper, contextAccessor) 
         {
             this.configuration = configuration;
             this.tokenService = tokenService;
