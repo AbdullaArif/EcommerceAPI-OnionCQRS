@@ -23,7 +23,7 @@ namespace EcommerceAPI.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllDetails()
         {
-            var response = await _mediator.Send(new GetAllDetailQueryRequest());
+            IList<GetAllDetailQueryResponse> response = await _mediator.Send(new GetAllDetailQueryRequest());
             return Ok(response);
         }
 

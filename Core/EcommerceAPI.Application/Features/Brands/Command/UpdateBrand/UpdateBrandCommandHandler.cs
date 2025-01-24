@@ -25,7 +25,7 @@ namespace EcommerceAPI.Application.Features.Brands.Command.UpdateBrand
         {
             Brand brand = await _unitOfWork.GetReadRepository<Brand>().GetAsync(b=>b.Id==request.Id && !b.IsDeleted);
 
-            var map = _mapper.Map<Brand,UpdateBrandCommandRequest>(request);
+            Brand map = _mapper.Map<Brand,UpdateBrandCommandRequest>(request);
 
             await _unitOfWork.GetWriteRepository<Brand>().UpdateAsync(map);
             await _unitOfWork.SaveAsync();

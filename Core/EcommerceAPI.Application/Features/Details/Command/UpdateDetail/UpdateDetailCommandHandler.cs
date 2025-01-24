@@ -23,9 +23,9 @@ namespace EcommerceAPI.Application.Features.Details.Command.UpdateDetail
 
         public async Task Handle(UpdateDetailCommandRequest request, CancellationToken cancellationToken)
         {
-            var detail = await _unitOfWork.GetReadRepository<Detail>().GetAsync(d => d.Id == request.Id && !d.IsDeleted);
+            Detail detail = await _unitOfWork.GetReadRepository<Detail>().GetAsync(d => d.Id == request.Id && !d.IsDeleted);
 
-            var map = _mapper.Map<Detail,UpdateDetailCommandRequest>(request);
+            Detail map = _mapper.Map<Detail,UpdateDetailCommandRequest>(request);
 
             await _unitOfWork.GetWriteRepository<Detail>().UpdateAsync(map);
             await _unitOfWork.SaveAsync();

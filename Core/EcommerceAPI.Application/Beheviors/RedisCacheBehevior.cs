@@ -21,15 +21,15 @@ namespace EcommerceAPI.Application.Beheviors
         {
             if(request is ICacheableQuery query)
             {
-                var cacheKey = query.CacheKey;
-                var cacheTime = query.CacheTime;
+                string cacheKey = query.CacheKey;
+                double cacheTime = query.CacheTime;
 
-                var cachedData = await _redisCacheService.GetAsync<TResponse>(cacheKey);
+                TResponse? cachedData = await _redisCacheService.GetAsync<TResponse>(cacheKey);
                 if (cachedData is not null) { 
                 
                 return cachedData;
                 }
-                var response = await next();
+                TResponse? response = await next();
 
                 if(response is not null) await _redisCacheService.SetAsync(cacheKey, response, DateTime.Now.AddMinutes(cacheTime));
                 return response;

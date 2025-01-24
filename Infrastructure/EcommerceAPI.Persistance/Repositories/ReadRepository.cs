@@ -62,7 +62,7 @@ namespace EcommerceAPI.Persistance.Repositories
 
             if (include is not null) queryable = include(queryable);
 
-           //queryable.Where(predicate); 
+           
 
             return await queryable.FirstOrDefaultAsync(predicate);
         }

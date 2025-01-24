@@ -27,8 +27,8 @@ namespace EcommerceAPI.Application.Features.Categories.Command.CreateCategory
             {
                 foreach (var detailId in request.DetailIds)
                 {
-                    
-                    var detail = await _unitOfWork.GetReadRepository<Detail>()
+
+                    Detail detail = await _unitOfWork.GetReadRepository<Detail>()
                         .GetAsync(x => x.Id == detailId);
 
                     if (detail != null)

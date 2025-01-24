@@ -43,7 +43,7 @@ namespace EcommerceAPI.Mapper.AutoMapper
 
         protected void Config<TDestination, TSource>(int depth = 5, string? ignore = null)
         {
-            var typePair = new TypePair(typeof(TDestination), typeof(TSource));
+            TypePair typePair = new TypePair(typeof(TDestination), typeof(TSource));
 
             if (typePairs.Any(a => a.DestinationType == typePair.DestinationType
                                && a.SourceType == typePair.SourceType) && ignore is null) 

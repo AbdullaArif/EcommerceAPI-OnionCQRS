@@ -20,14 +20,14 @@ namespace EcommerceAPI.Infrastructure.RedisCache
         {
 
             _settings = options.Value;
-            var opt= ConfigurationOptions.Parse(_settings.ConnectionString);
+            ConfigurationOptions opt = ConfigurationOptions.Parse(_settings.ConnectionString);
             _connectionMultiplexerRedis =ConnectionMultiplexer.Connect(opt);
             _database = _connectionMultiplexerRedis.GetDatabase();
         }
 
         public async Task<T> GetAsync<T>(string key)
         {
-            var value = await _database.StringGetAsync(key);
+            RedisValue value = await _database.StringGetAsync(key);
             if (value.HasValue) return JsonConvert.DeserializeObject<T>(value);
 
             return default;
