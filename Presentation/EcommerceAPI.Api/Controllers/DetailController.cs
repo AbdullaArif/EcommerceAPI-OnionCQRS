@@ -2,6 +2,7 @@
 using EcommerceAPI.Application.Features.Details.Command.DeleteDetail;
 using EcommerceAPI.Application.Features.Details.Command.UpdateDetail;
 using EcommerceAPI.Application.Features.Details.Queries.GetAllDetails;
+using EcommerceAPI.Application.Features.Details.Queries.GetByIdDetail;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +25,13 @@ namespace EcommerceAPI.Api.Controllers
         public async Task<IActionResult> GetAllDetails()
         {
             IList<GetAllDetailQueryResponse> response = await _mediator.Send(new GetAllDetailQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByIdDetail(int id)
+        {
+            var response = await _mediator.Send(new GetByIdDetailQueryRequest(id));
             return Ok(response);
         }
 
