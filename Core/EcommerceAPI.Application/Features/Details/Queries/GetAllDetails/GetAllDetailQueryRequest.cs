@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using EcommerceAPI.Application.Interfaces.RedisCache;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,6 @@ namespace EcommerceAPI.Application.Features.Details.Queries.GetAllDetails
 {
     public class GetAllDetailQueryRequest:IRequest<IList<GetAllDetailQueryResponse>>
     {
+   
     }
 }
