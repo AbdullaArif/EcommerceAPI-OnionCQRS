@@ -2,6 +2,7 @@
 using EcommerceAPI.Application.Features.Products.Command.DeleteProduct;
 using EcommerceAPI.Application.Features.Products.Command.UpdateProduct;
 using EcommerceAPI.Application.Features.Products.Queries.GetAllProducts;
+using EcommerceAPI.Application.Features.Products.Queries.GetByIdProduct;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -25,6 +26,13 @@ namespace EcommerceAPI.Api.Controllers
         public async Task<IActionResult> GetAllProduct()
         {
             IList<GetAllProductsQueryResponse> response = await _mediator.Send(new GetAllProductsQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByIdProduct(int id)
+        {
+            var response = await _mediator.Send(new GetByIdProductQueryRequest(id));
             return Ok(response);
         }
 
