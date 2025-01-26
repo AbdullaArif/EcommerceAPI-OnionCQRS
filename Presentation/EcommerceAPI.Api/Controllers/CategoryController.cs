@@ -2,6 +2,7 @@
 using EcommerceAPI.Application.Features.Categories.Command.DeleteCategory;
 using EcommerceAPI.Application.Features.Categories.Command.UpdateCategory;
 using EcommerceAPI.Application.Features.Categories.Queries.GetAllCategories;
+using EcommerceAPI.Application.Features.Categories.Queries.GetByIdCategory;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,13 @@ namespace EcommerceAPI.Api.Controllers
         public async Task<IActionResult> GetAllCategories()
         {
             IList<GetAllCategoriesQueryResponse> response = await _mediator.Send(new GetAllCategoriesQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByIdCategory(int id)
+        {
+            var response = await _mediator.Send(new GetByIdCategoryQueryRequest(id));
             return Ok(response);
         }
 
