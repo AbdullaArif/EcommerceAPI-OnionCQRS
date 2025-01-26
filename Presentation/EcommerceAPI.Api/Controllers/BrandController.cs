@@ -2,6 +2,7 @@
 using EcommerceAPI.Application.Features.Brands.Command.DeleteBrand;
 using EcommerceAPI.Application.Features.Brands.Command.UpdateBrand;
 using EcommerceAPI.Application.Features.Brands.Queries.GetAllBrands;
+using EcommerceAPI.Application.Features.Brands.Queries.GetByIdBrand;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,13 @@ namespace EcommerceAPI.Api.Controllers
         public async Task<IActionResult> GetAllBrands()
         {
             IList<GetAllBrandsQueryResponse> response = await _mediator.Send(new GetAllBrandsQueryRequest());
+            return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetByIdBrand(int id)
+        {
+            var response = await _mediator.Send(new GetByIdBrandQueryRequest(id));
             return Ok(response);
         }
 
