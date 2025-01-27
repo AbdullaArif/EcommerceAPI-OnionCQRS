@@ -1,8 +1,27 @@
 # Ecommerce API
-
+## Project Description
 Welcome to the **Ecommerce API** project! This project is a robust, scalable, and maintainable solution designed for managing ecommerce platforms. It utilizes clean architecture, follows SOLID principles, and implements advanced design patterns to ensure high performance and modularity.
 
 ---
+## Table of Contents
+- [Project Description](#project-description)
+- [🚀 Features](#features)
+- [🏗️ Architecture](#architecture)
+- [⚙️ Frameworks & Tools](#frameworks--tools)
+- [🔑 Authentication Flow](#authentication-flow)
+- [📖 Documentation](#documentation)
+- [💡 Advantages of the Architecture](#advantages-of-the-architecture)
+- [🧪 Testing](#testing)
+- [📥 Getting Started](#getting-started)
+- [🖼️ Screenshots & Visuals](#screenshots--visuals)
+- [SOLID Principles](#solid-principles)
+- [Design Patterns](#design-patterns)
+- [Setup and Installation](#setup-and-installation)
+- [API Usage](#api-usage)
+- [Contributing](#contributing)
+
+---
+
 
 ## 🚀 Features
 
