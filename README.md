@@ -23,7 +23,7 @@ Welcome to the **Ecommerce API** project! This project is a robust, scalable, an
 ---
 
 
-## 🚀 Features
+##  Features🚀
 
 - **Authentication & Authorization**
   - Supports login, registration, token refresh, and revocation.
@@ -43,7 +43,7 @@ Welcome to the **Ecommerce API** project! This project is a robust, scalable, an
 
 ---
 
-## 🏗️ Architecture
+##  Architecture🏗️
 
 This project follows **Clean Architecture**, separating concerns into layers:
 
@@ -59,14 +59,14 @@ This project follows **Clean Architecture**, separating concerns into layers:
 4. **Presentation**: API layer for external interaction.
    - `EcommerceAPI.Api`
 
-### 🛠 Design Patterns
+###  Design Patterns 🛠
 
 - **Repository Pattern**: Abstracts data layer for better testability and maintainability.
 - **Unit of Work**: Ensures atomicity in transactions across multiple repositories.
 - **CQRS (Command Query Responsibility Segregation)**: Separates read and write operations using MediatR.
 - **Singleton Pattern**: Applied to Redis connection management for optimal resource utilization.
 
-### 📜 SOLID Principles
+###  SOLID Principles 📜
 
 - **S**: Single Responsibility - Controllers and services handle specific roles only.
 - **O**: Open/Closed - Application layers can extend functionality without modifying existing code.
@@ -76,7 +76,7 @@ This project follows **Clean Architecture**, separating concerns into layers:
 
 ---
 
-## ⚙️ Frameworks & Tools
+##  Frameworks & Tools ⚙️
 
 - **.NET 7.0**: The foundation of the application.
 - **Entity Framework Core**: ORM for database operations.
@@ -87,7 +87,7 @@ This project follows **Clean Architecture**, separating concerns into layers:
 
 ---
 
-## 🔑 Authentication Flow
+##  Authentication Flow 🔑
 
 1. **Access Token**: Used for quick authentication.
 2. **Refresh Token**: Generates new access tokens upon expiration.
@@ -96,7 +96,7 @@ The refresh flow ensures security by invalidating old tokens during user logout.
 
 ---
 
-## 🖼️ Screenshots & Visuals
+##  Screenshots & Visuals 🖼️
 
 1. **API Endpoints Documentation**  
    ![API Endpoints](./assets/swaggerUi.png)
@@ -109,7 +109,7 @@ The refresh flow ensures security by invalidating old tokens during user logout.
 
 ---
 
-## 🧪 Testing
+##  Testing 🧪
 
 - **Unit Tests**: For business logic validation.
 - **Integration Tests**: Ensures end-to-end functionality of APIs.
@@ -117,7 +117,7 @@ The refresh flow ensures security by invalidating old tokens during user logout.
 
 ---
 
-## 💡 Advantages of the Architecture
+##  Advantages of the Architecture 💡
 
 - **Scalability**: Modular design allows independent scaling of components.
 - **Maintainability**: Clear separation of concerns makes it easy to extend or refactor.
@@ -125,14 +125,14 @@ The refresh flow ensures security by invalidating old tokens during user logout.
 
 ---
 
-## 📚 Documentation
+##  Documentation 📚
 
 - [Swagger API Documentation](https://swagger.io/solutions/api-documentation/)
 - [Redis Caching Guide](https://redis.io/docs/getting-started/)
 
 ---
 
-## 📥 Getting Started
+##  Getting Started 📥
 
 ### Prerequisites
 
