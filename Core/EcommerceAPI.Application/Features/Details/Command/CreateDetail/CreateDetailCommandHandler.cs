@@ -20,6 +20,8 @@ namespace EcommerceAPI.Application.Features.Details.Command.CreateDetail
 
         public async Task Handle(CreateDetailCommandRequest request, CancellationToken cancellationToken)
         {
+
+
             Detail detail = new(request.Tittle, request.Description, request.CategoryId);
             await _unitOfWork.GetWriteRepository<Detail>().AddAsync(detail);
 
