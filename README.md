@@ -144,7 +144,7 @@ The refresh flow ensures security by invalidating old tokens during user logout.
 
 1. Clone the repository:  
    ```bash
-   git clone https://github.com/your-repo/ecommerce-api.git
+   git clone https://github.com/AbdullaArif/ecommerce-api.git
 
 
 
@@ -230,7 +230,8 @@ Bu proje, temiz mimari prensiplerini takip eder. Katmanlar şu şekilde organize
 ### Adımlar
 1. **Repository'yi Klonlayın**
 ```bash
-git clone https://github.com/kullaniciadi/EcommerceAPI.git
+   git clone https://github.com/AbdullaArif/ecommerce-api.git
+
 ```
 2. **Bağımlılıkları Yükleyin**
 ```bash
@@ -290,4 +291,4 @@ git checkout -b feature/yenilik
 ---
 📞 Contact
 Email: arifabdulla034@gmail.com
-GitHub: [GitHubProfile](https://github.com/AbdullaArif/)
+GitHub: [Arif Abdulla](https://github.com/AbdullaArif/)
