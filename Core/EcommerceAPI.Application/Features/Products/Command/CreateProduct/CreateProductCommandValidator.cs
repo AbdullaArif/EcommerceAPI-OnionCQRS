@@ -30,9 +30,6 @@ namespace EcommerceAPI.Application.Features.Products.Command.CreateProduct
             RuleFor(x => x.CategoryIds)
                 .NotEmpty()
                 .Must(c=>c.Any());
-
-            
-
         }
 
     }
