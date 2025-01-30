@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceAPI.Application.Features.Categories.Command.CreateCategory
 {
-    public class CreateCategoryCommandRequest:IRequest
+    public class CreateCategoryCommandRequest:IRequest<Unit>
     {
         public int ParentId { get; set; }
         public string Name { get; set; }

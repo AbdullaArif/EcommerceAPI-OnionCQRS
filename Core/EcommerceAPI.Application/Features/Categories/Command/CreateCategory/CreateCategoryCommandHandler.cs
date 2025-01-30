@@ -1,4 +1,5 @@
-﻿using EcommerceAPI.Application.Interfaces.UnitOfWorks;
+﻿using EcommerceAPI.Application.Features.Categories.Rules;
+using EcommerceAPI.Application.Interfaces.UnitOfWorks;
 using EcommerceAPI.Domain.Entities;
 using MediatR;
 using System;
@@ -9,17 +10,22 @@ using System.Threading.Tasks;
 
 namespace EcommerceAPI.Application.Features.Categories.Command.CreateCategory
 {
-    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommandRequest>
+    public class CreateCategoryCommandHandler : IRequestHandler<CreateCategoryCommandRequest,Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
-
-        public CreateCategoryCommandHandler(IUnitOfWork unitOfWork)
+        private readonly CategoryRules _categoryRules;
+        public CreateCategoryCommandHandler(IUnitOfWork unitOfWork, CategoryRules categoryRules)
         {
             _unitOfWork = unitOfWork;
+            _categoryRules = categoryRules;
         }
 
-        public async Task Handle(CreateCategoryCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateCategoryCommandRequest request, CancellationToken cancellationToken)
         {
+            var categories = await _unitOfWork.GetReadRepository<Category>().GetAllAsync() ;
+            await _categoryRules.CategoryMustBeUnique(request.Name, categories) ; 
+
+
             Category category = new(request.Priorty, request.Name, request.ParentId);
              await _unitOfWork.GetWriteRepository<Category>().AddAsync(category);
 
@@ -40,6 +46,8 @@ namespace EcommerceAPI.Application.Features.Categories.Command.CreateCategory
                 }
                 await _unitOfWork.SaveAsync();
             }
+
+            return Unit.Value;
         }
     }
 }

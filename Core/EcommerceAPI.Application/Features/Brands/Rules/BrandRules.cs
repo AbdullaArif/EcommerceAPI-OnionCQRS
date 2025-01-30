@@ -1,4 +1,5 @@
 ﻿using EcommerceAPI.Application.Bases;
+using EcommerceAPI.Application.Features.Brands.Exceptions;
 using EcommerceAPI.Domain.Entities;
 using System;
 using System.Collections.Generic;
