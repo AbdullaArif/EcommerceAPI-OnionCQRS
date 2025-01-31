@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceAPI.Application.Features.Details.Command.CreateDetail
 {
-    public class CreateDetailCommandRequest:IRequest
+    public class CreateDetailCommandRequest:IRequest<Unit>
     {
 
         public string Tittle { get; set; }

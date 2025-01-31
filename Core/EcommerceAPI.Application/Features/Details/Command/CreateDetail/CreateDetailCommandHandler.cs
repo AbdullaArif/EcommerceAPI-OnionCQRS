@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EcommerceAPI.Application.Features.Details.Command.CreateDetail
 {
-    public class CreateDetailCommandHandler : IRequestHandler<CreateDetailCommandRequest>
+    public class CreateDetailCommandHandler : IRequestHandler<CreateDetailCommandRequest,Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
 
@@ -18,7 +18,7 @@ namespace EcommerceAPI.Application.Features.Details.Command.CreateDetail
             _unitOfWork = unitOfWork;
         }
 
-        public async Task Handle(CreateDetailCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateDetailCommandRequest request, CancellationToken cancellationToken)
         {
 
 
@@ -27,6 +27,7 @@ namespace EcommerceAPI.Application.Features.Details.Command.CreateDetail
 
             await _unitOfWork.SaveAsync();
 
+            return Unit.Value;
         }
     }
 }
