@@ -12,6 +12,21 @@ namespace EcommerceAPI.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
+            var corsPolicy = "AllowAll";
+
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy(name: corsPolicy,
+                    policy =>
+                    {
+                        policy.AllowAnyOrigin()
+                              .AllowAnyMethod()
+                              .AllowAnyHeader();
+                    });
+            });
+
+
             // Add services to the container.
 
             builder.Services.AddControllers();
@@ -77,7 +92,9 @@ namespace EcommerceAPI.Api
                 app.UseSwaggerUI();
             }
             app.ConfigureExceptionHandlingMiddleware();
+            app.UseCors(corsPolicy);
             app.UseAuthorization();
+
 
 
             app.MapControllers();
