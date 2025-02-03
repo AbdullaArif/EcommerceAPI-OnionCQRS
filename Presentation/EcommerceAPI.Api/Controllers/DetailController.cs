@@ -3,6 +3,7 @@ using EcommerceAPI.Application.Features.Details.Command.DeleteDetail;
 using EcommerceAPI.Application.Features.Details.Command.UpdateDetail;
 using EcommerceAPI.Application.Features.Details.Queries.GetAllDetails;
 using EcommerceAPI.Application.Features.Details.Queries.GetByIdDetail;
+using EcommerceAPI.Application.Features.Details.Queries.SearchDetails;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -33,6 +34,13 @@ namespace EcommerceAPI.Api.Controllers
         {
             var response = await _mediator.Send(new GetByIdDetailQueryRequest(id));
             return Ok(response);
+        }
+
+        [HttpGet]
+        public  async Task<IActionResult> SearchDetails([FromQuery] SearchDetailsQueryRequest request)
+        {
+            var result = await _mediator.Send(request);
+            return Ok(result);
         }
 
         [HttpPost]
