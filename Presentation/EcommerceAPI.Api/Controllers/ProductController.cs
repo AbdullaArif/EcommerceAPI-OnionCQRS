@@ -3,6 +3,7 @@ using EcommerceAPI.Application.Features.Products.Command.DeleteProduct;
 using EcommerceAPI.Application.Features.Products.Command.UpdateProduct;
 using EcommerceAPI.Application.Features.Products.Queries.GetAllProducts;
 using EcommerceAPI.Application.Features.Products.Queries.GetByIdProduct;
+using EcommerceAPI.Application.Features.Products.Queries.SearchProducts;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +35,13 @@ namespace EcommerceAPI.Api.Controllers
         {
             var response = await _mediator.Send(new GetByIdProductQueryRequest(id));
             return Ok(response);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> SearchProducts([FromQuery] SearchProductsQueryRequest request)
+        {
+            var result = await _mediator.Send(request);
+            return Ok(result);
         }
 
         [HttpPost]
