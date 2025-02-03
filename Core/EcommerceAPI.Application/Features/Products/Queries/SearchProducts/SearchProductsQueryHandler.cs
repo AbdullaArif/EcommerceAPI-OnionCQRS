@@ -38,12 +38,12 @@ namespace EcommerceAPI.Application.Features.Products.Queries.SearchProducts
                 predicate: predicate,
                 include: q => q.Include(p => p.Brand),
                 orderBy: q => q.OrderBy(p => p.Tittle),
-                enableTracking: false,
                 currentPage: request.Page,
                 pageSize: request.PageSize
             );
 
             var map = _mapper.Map<SearchProductsQueryResponse, Product>(products);
+
             return map;
 
             //return products.Select(p => new SearchProductsQueryResponse
