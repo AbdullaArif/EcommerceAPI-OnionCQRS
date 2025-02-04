@@ -16,5 +16,9 @@ namespace EcommerceAPI.Application.Bases
         {
             
         }
+
+        public BaseException(string message,Exception ex) : base(message,ex)
+        { 
+        }
     }
 }
