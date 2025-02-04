@@ -1,5 +1,7 @@
-﻿using EcommerceAPI.Application.Interfaces.RedisCache;
+﻿using EcommerceAPI.Application.Interfaces.Emails;
+using EcommerceAPI.Application.Interfaces.RedisCache;
 using EcommerceAPI.Application.Interfaces.Tokens;
+using EcommerceAPI.Infrastructure.Emails;
 using EcommerceAPI.Infrastructure.RedisCache;
 using EcommerceAPI.Infrastructure.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -26,6 +28,8 @@ namespace EcommerceAPI.Infrastructure
             services.AddTransient<IRedisCacheService, RedisCacheService>();
 
 
+            services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
+            services.AddScoped<IEmailService, EmailService>();
 
 
             services.AddAuthentication(options =>
