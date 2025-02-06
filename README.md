@@ -12,6 +12,7 @@ Welcome to the **Ecommerce API** project! This project is a robust, scalable, an
 - [⚙️ Frameworks & Tools](#frameworks--tools)
 - [🔑 Authentication Flow](#authentication-flow)
 - [🔍 Searching Algorithm](#searching-algorithm)
+- [📧 Email Service](#email-service)
 - [📖 Documentation](#documentation)
 - [💡 Advantages of the Architecture](#advantages-of-the-architecture)
 - [📥 Getting Started](#getting-started)
@@ -104,6 +105,15 @@ The refresh flow ensures security by invalidating old tokens during user logout.
 - **Pattern**: It leverages **Generic Repository**, **Expression Filtering**, and **Pagination** to ensure optimal performance and scalability
 
 ---
+## 📧 Email Service
+ ### Key Features 
+✅ SMTP-based email sending
+✅ Supports plain text and HTML emails
+✅ Integrated with MediatR for CQRS pattern
+✅ Input validation using FluentValidation
+✅ Exception handling for failed email deliveries
+
+
 
 ## 🖼️ Screenshots & Visuals
 
