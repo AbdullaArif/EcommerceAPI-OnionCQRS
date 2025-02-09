@@ -4,6 +4,9 @@ using EcommerceAPI.Infrastructure;
 using EcommerceAPI.Mapper;
 using EcommerceAPI.Application.Exceptions;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using EcommerceAPI.Infrastructure.Logging;
 namespace EcommerceAPI.Api
 {
     public class Program
@@ -11,7 +14,6 @@ namespace EcommerceAPI.Api
         public static void Main(string[] args)
         {
             var builder = WebApplication.CreateBuilder(args);
-
 
             var corsPolicy = "AllowAll";
 
@@ -27,10 +29,22 @@ namespace EcommerceAPI.Api
             });
 
 
+            // Serilog
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .WriteTo.File("C:\\Users\\Arif\\Desktop\\EcommerceAPI\\Logs\\log.txt",
+                rollingInterval: RollingInterval.Day)
+                .CreateLogger();
+
+            builder.Host.UseSerilog();
+
+
+
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            builder.Services.AddLoggingServices(builder.Configuration);
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
@@ -91,6 +105,7 @@ namespace EcommerceAPI.Api
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+            app.UseSerilogRequestLogging();
             app.ConfigureExceptionHandlingMiddleware();
             app.UseCors(corsPolicy);
             app.UseAuthorization();
