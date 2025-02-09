@@ -1,13 +1,17 @@
 ﻿using EcommerceAPI.Application.Interfaces.Emails;
+using EcommerceAPI.Application.Interfaces.Logging;
 using EcommerceAPI.Application.Interfaces.RedisCache;
 using EcommerceAPI.Application.Interfaces.Tokens;
 using EcommerceAPI.Infrastructure.Emails;
+using EcommerceAPI.Infrastructure.Logging;
 using EcommerceAPI.Infrastructure.RedisCache;
 using EcommerceAPI.Infrastructure.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +34,15 @@ namespace EcommerceAPI.Infrastructure
 
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
             services.AddScoped<IEmailService, EmailService>();
+
+
+            services.AddScoped<ILoggerService, LoggerService>();
+
+
+
+
+
+
 
 
             services.AddAuthentication(options =>
@@ -57,6 +70,18 @@ namespace EcommerceAPI.Infrastructure
                 opt.Configuration = configuration["RedisCacheSettings:ConnectionString"];
                 opt.InstanceName = configuration["RedisCacheSettings:InstanceName"];
             });
+
+
+           
+
+
+
+
+
+
+
+
+
         }
     }
 }
