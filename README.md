@@ -7,19 +7,33 @@ Welcome to the **Ecommerce API** project! This project is a robust, scalable, an
 
 ## 📋 Table of Contents
 - [🚀 Project Description](#project-description)
+
 - [✨ Features](#features)
+
 - [🏗️ Architecture](#architecture)
+
 - [⚙️ Frameworks & Tools](#frameworks--tools)
+
 - [🔑 Authentication Flow](#authentication-flow)
+
 - [🔍 Searching Algorithm](#searching-algorithm)
+
 - [📧 Email Service](#email-service)
+
+- [📜 Logging Service](#logging-service)
+
 - [📖 Documentation](#documentation)
+
 - [💡 Advantages of the Architecture](#advantages-of-the-architecture)
-- [📥 Getting Started](#getting-started)
+
 - [🖼️ Screenshots & Visuals](#screenshots--visuals)
+
 - [🛠️ Design Patterns](#design-patterns)
-- [🔧 Setup and Installation](#setup-and-installation)
+
+- [📥 Getting Started](#getting-started)
+
 - [📡 API Usage](#api-usage)
+
 - [🤝 Contributing](#contributing)
 
 ---
@@ -57,6 +71,8 @@ This project follows **Clean Architecture**, separating concerns into layers:
 2. **Infrastructure**: External dependencies and services.
    - Redis caching
    - Token services
+   - Email services
+   - Loging services
 3. **Persistence**: Database configurations and repositories.
    - EcommerceAPI.Persistance
 4. **Presentation**: API layer for external interaction.
@@ -79,6 +95,7 @@ This project follows **Clean Architecture**, separating concerns into layers:
 - **Redis**: Caching for improved performance.
 - **AutoMapper**: Simplified object mapping.
 - **JWT Authentication**: Secure token-based authentication.
+- **Serilog**: Structured logging with Serilog
 
 ---
 
@@ -107,13 +124,22 @@ The refresh flow ensures security by invalidating old tokens during user logout.
 ---
 ## 📧 Email Service
  ### Key Features 
-✅ SMTP-based email sending
-✅ Supports plain text and HTML emails
-✅ Integrated with MediatR for CQRS pattern
-✅ Input validation using FluentValidation
-✅ Exception handling for failed email deliveries
+**✅** SMTP-based email sending
+**✅** Supports plain text and HTML emails
+**✅** Integrated with MediatR for CQRS pattern
+**✅** Input validation using FluentValidation
+**✅** Exception handling for failed email deliveries
 
+## 📜 Logging Service
+  📌 Overview
+    The Logging Service is responsible for structured logging across the Ecommerce API. It is implemented using Serilog and integrated with Microsoft.Extensions.Logging to capture application events, errors, and debugging information. This service allows logging to Console, File (Rolling Logs), and External Log Providers for better monitoring and troubleshooting.
 
+ ### Key Features
+  **✅** Structured logging with Serilog
+  **✅** Logs to Console and File (/EcommerceAPI/Logs/log-<date>.txt)
+  **✅** Supports different log levels (Info, Warning, Error, Critical)
+  **✅** Exception tracking and debugging support
+  **✅** Easily configurable via appsettings.json 
 
 ## 🖼️ Screenshots & Visuals
 
