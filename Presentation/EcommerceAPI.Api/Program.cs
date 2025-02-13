@@ -15,8 +15,10 @@ namespace EcommerceAPI.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var corsPolicy = "AllowAll";
 
+            //Cross-Origin Resource Sharing
+            //AllowAll - Dangerous 
+            var corsPolicy = "AllowAll";
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy(name: corsPolicy,
